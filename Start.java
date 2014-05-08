@@ -16,6 +16,7 @@ public class Start extends Actor
     {
         if(Greenfoot.mouseClicked(this))  
         {   
+            ((Startroom)getWorld()).stopmusic();
             background bg = new background(); 
             Greenfoot.setWorld(bg);
         }

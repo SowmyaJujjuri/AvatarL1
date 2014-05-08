@@ -11,11 +11,11 @@ public class base extends World
     Counter counter;
     HealthBar healthBar;
     String[] map;
+    private GreenfootSound L1music = new GreenfootSound("BoisterousBoulevard.mp3");  
     public base()
     {    
 
-        super(800, 500, 1);  
-        Greenfoot.playSound("Lvl2Music.mp3");
+        super(800, 500, 1);
         setFields();
 
         for (int i=0; i<map.length; i++) for (int j=0; j<map[i].length(); j++)
@@ -103,5 +103,13 @@ public class base extends World
         addObject(powerUp, 300, 323);
 
     }
-
-}
+    
+    public void act()
+    {       
+       L1music.playLoop();
+    }
+    public void L1Stopmusic()
+    {
+         L1music.stop();  
+    }
+    }

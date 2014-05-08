@@ -45,6 +45,7 @@ public class background2 extends base
 
     public void nextLevel()
     {
+        L1Stopmusic();
         Greenfoot.setWorld(new Lvl2BkgDesert(counter.getValue()));
     }
 

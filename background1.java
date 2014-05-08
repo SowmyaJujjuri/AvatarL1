@@ -42,6 +42,7 @@ public class background1 extends base
     }
     public void nextLevel()
     {
+        L1Stopmusic();
         background2 bg2 = new background2(counter, healthBar);
 
         Greenfoot.setWorld(bg2);
