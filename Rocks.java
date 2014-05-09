@@ -17,7 +17,7 @@ public class Rocks extends Actor
      * Act - do whatever the Rocks wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int shotstaken = 0;
+    static int shotstaken = 0;
     int count = 0;
     int health = 100;
     boolean colorchanged = false;

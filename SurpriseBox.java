@@ -72,6 +72,7 @@ public class SurpriseBox extends Actor
 
         if (timer == 65)
         {
+            timer = 0;
             setLocation(Greenfoot.getRandomNumber(800), Greenfoot.getRandomNumber(600));
         }
     }       
