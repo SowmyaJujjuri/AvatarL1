@@ -16,7 +16,7 @@ public class Launcher extends Mover
     }
     public void act() 
     {
-        // Sets the Heart as a smaller image
+        // Sets the launcher as a smaller image
         GreenfootImage img = getImage();
         setImage(img);
         

@@ -15,7 +15,7 @@ public class Instructionslvl1 extends World
      */
     public Instructionslvl1()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 800x500 cells with a cell size of 1x1 pixels.
         super(800, 500, 1);
         Start startButton = new Start();
         addObject (startButton, 400, 480);

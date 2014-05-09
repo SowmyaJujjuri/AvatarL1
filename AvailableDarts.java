@@ -10,7 +10,6 @@ public class AvailableDarts extends Actor
 {
     public void act() 
     {
-        // Add your action code here.
         Lvl2BkgDesert myWorld = (Lvl2BkgDesert)getWorld();
         makeImage("Darts Left:", " ", myWorld.GetAvailDarts());
     }
@@ -26,11 +25,7 @@ public class AvailableDarts extends Actor
         image.setColor(new Color(0, 0, 0, 160));
         image.setColor(new Color(255, 255, 255, 100));
         image.fillRect(5, 5, WIDTH-10, HEIGHT-10);
-        //Font font = image.getFont();
-        //font = font.deriveFont(FONT_SIZE);
-        //public Font(String name,int style,int size)
         Font font = new Font("Segoe UI", Font.BOLD, 25);
-        //font = font.deriveFont(FONT_SIZE);
         image.setFont(font);
         image.setColor(Color.WHITE);
         image.drawString(title, 10, 35);

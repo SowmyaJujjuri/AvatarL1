@@ -14,38 +14,27 @@ public class Congratulation extends BlueDemon
      */
     public void act() 
     {
-        // Add your action code here.
         GreenfootImage image = getImage(); 
         image.scale(400,400);
-        //setImage(image);
-      //  Greenfoot.delay(3);
-    //    image.scale(400,400);
-  //      setImage(image);
-//        Greenfoot.delay(3);
-//        image.scale(500,500);
-   //     setImage(image);
- //       image.scale(600,600);
-//        setImage(image);
-//        image.scale(700,700);
         setImage(image);
-        
+
         if (GameOver = true)
         {
             Greenfoot.stop();
         }
-       
-      if (touchingBullet())
+
+        if (touchingBullet())
         {      
-           Lvl2BkgDesert myWorld = (Lvl2BkgDesert)getWorld();
-               int n = myWorld.GetAvailDarts();
-               System.out.println(n); 
-               
-           if (n < 1) 
+            Lvl2BkgDesert myWorld = (Lvl2BkgDesert)getWorld();
+            int n = myWorld.GetAvailDarts();
+            System.out.println(n); 
+
+            if (n < 1) 
             {
-               getWorld().addObject(new DemonExplosion(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-               GameOver = true;
-               getWorld().removeObject(this);
+                getWorld().addObject(new DemonExplosion(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+                GameOver = true;
+                getWorld().removeObject(this);
             }
-    }    
-}
+        }    
+    }
 }

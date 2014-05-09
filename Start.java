@@ -21,6 +21,7 @@ public class Start extends Actor
             Greenfoot.setWorld(bg);
         }
 
+        // Cheat to jump to level 2 game with 100 darts.
         if(Greenfoot.isKeyDown("shift") && Greenfoot.isKeyDown("F9"))
         {
             Greenfoot.setWorld(new Lvl2BkgDesert(100));

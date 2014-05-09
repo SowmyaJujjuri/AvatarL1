@@ -16,7 +16,6 @@ public class DemonExplosion extends BlueDemon
      */
     public void act() 
     {
-        // Add your action code here.
         GreenfootImage image = getImage(); 
         image.scale(400,400);
         setImage(image);
@@ -26,10 +25,6 @@ public class DemonExplosion extends BlueDemon
             Startroom sr = new Startroom(); 
             Greenfoot.setWorld(sr);
         }
-        //if (GameOver = true)
-        //{
-         //   Greenfoot.stop();
-       // }
        
     }    
 }

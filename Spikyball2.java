@@ -35,11 +35,6 @@ public class Spikyball2 extends Actor
         {
            vSpeed=-vSpeed + acceleration;
         }
-
-        //else 
-        // {
-        //     if ((getY() == 100)) 
-        //      vSpeed = -vSpeed;
     }
 
 }

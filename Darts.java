@@ -1,7 +1,5 @@
- 
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Write a description of class Darts here.
  * 
@@ -18,7 +16,7 @@ public class Darts extends Mover
         img.scale(40,40);
         setImage(img);
     }  
-    
+
     public void act()
     {
         //Sets our image as a smaller size
@@ -26,35 +24,26 @@ public class Darts extends Mover
         img.scale(40,40);
         //setRotation(270);
         setImage(img);
-        
+
         move(15);
-        
+
         if(atSide())
         {
             getWorld().removeObject(this);
         }
-        
+
         else 
         {
-        if (touchingDemon())
-        {  
-           //Remove Bullet and Demon objects;
- //            bluedemon = getOneObjectAtOffset(0, 0, BlueDemon.class);
-
- //          if (BlueDemon.class != null)
- //          {
- //              setLocation(0,getHeight()/2);
- //            }
-         } 
+            if (touchingDemon())
+            {  
+            } 
         }
     }    
-    
-    
+
     public boolean touchingDemon() {    
-     return !getIntersectingObjects(BlueDemon.class).isEmpty();    
-     } 
-//I'm putting a comment here ;)
-        //Checks to see is the Dart as at the edge of the screen. If it is, remove the Dart
+        return !getIntersectingObjects(BlueDemon.class).isEmpty();    
+    } 
+    //Checks to see is the Dart as at the edge of the screen. If it is, remove the Dart
     public boolean atSide()
     {
         if(getX() == 0 || getX() == 799)

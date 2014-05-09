@@ -59,8 +59,8 @@ public class HealthBar extends Actor
         // Later (for example in an act() method), do:  
         long currentTime = System.currentTimeMillis();  
         int durationMillis = (int)(currentTime - startTime);  
-        // durationMillis is in milliseconds, so you  
-        // can convert to seconds/minutes whatever:  
+        // durationMillis is in milliseconds, so you can convert to seconds/minutes:
+        // In this case convert into only to seconds
         durationSecs = durationMillis / 1000; 
         health = totalTime - durationSecs;
         TimeLeft = health;
@@ -80,4 +80,3 @@ public class HealthBar extends Actor
 
     }
 }     
-

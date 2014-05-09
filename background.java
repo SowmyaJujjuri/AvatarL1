@@ -19,7 +19,7 @@ public class background extends base
         counter = new Counter();
         healthBar = new HealthBar();
         map = new String[] 
-       
+
         { 
             "               z      m ",
             "  o                     ",
@@ -46,7 +46,7 @@ public class background extends base
 
         Greenfoot.setWorld(bg1);
     }
-    
+
     private void prepare()
     {
 
@@ -57,8 +57,5 @@ public class background extends base
         addObject(powerUp, 300, 323);
 
     }
-    
-    // HealthBar healthbar = new HealthBar();
-
 
 }

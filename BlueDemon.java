@@ -1,8 +1,7 @@
- 
+
 import java.util.*;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Random;
-
 
 /**
  * Write a description of class BlueDemon here.
@@ -19,21 +18,19 @@ public class BlueDemon extends Actor
 
     private static final int WEST = 1;
     private static final int EAST = 2;
-    
+
     public boolean GameOver;
-    
-    //  GreenfootSound proton = new GreenfootSound("proton.wav");
 
     private int direction;
 
     public BlueDemon()
     {
-            setDirection(WEST);
+        setDirection(WEST);
     }
 
     public void act()
     {
-      Greenfoot.setSpeed(50);
+        Greenfoot.setSpeed(50);
 
         if(canMove())
         {
@@ -45,88 +42,82 @@ public class BlueDemon extends Actor
         {
             turnWest();
         }
-        
+
         if (touchingBullet())
         {      
-           Lvl2BkgDesert myWorld = (Lvl2BkgDesert)getWorld();
-               int n = myWorld.GetAvailDarts();
-               
-           if (n <= 1) 
-            {
-               getWorld().addObject(new DemonExplosion(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-               GameOver = true;
-               getWorld().removeObject(this);
-            }
-            
-            //Remove Bullet and Demon objects;
+            Lvl2BkgDesert myWorld = (Lvl2BkgDesert)getWorld();
+            int n = myWorld.GetAvailDarts();
 
-           //Actor d = getOneObjectAtOffset(0, 0, Darts.class);
-         Actor d = null;
-         List<Actor> mylist = (List<Actor>) getObjectsInRange(20,Darts.class);       
-         
-         if ( ! mylist.isEmpty())
-          {
-             d = getOneIntersectingObject(Darts.class);        
-          }
-    
-           if (d != null)
-           {
+            if (n <= 1) 
+            {
+                getWorld().addObject(new DemonExplosion(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+                GameOver = true;
+                getWorld().removeObject(this);
+            }
+
+            //Remove Bullet and Demon objects;
+            Actor d = null;
+            List<Actor> mylist = (List<Actor>) getObjectsInRange(20,Darts.class);       
+
+            if ( ! mylist.isEmpty())
+            {
+                d = getOneIntersectingObject(Darts.class);        
+            }
+
+            if (d != null)
+            {
                 GreenfootImage image = getImage();  
                 image.scale(image.getWidth() - 8, image.getHeight() - 10);  
                 setImage(image);
                 Greenfoot.playSound("ping.wav");
-       
-               d.setLocation(300,getWorld().getHeight()-20);
 
-               getWorld().removeObject(d);
-               getWorld().addObject(new DemonExplosionMulti(), getX(), getY());     
-            
+                d.setLocation(300,getWorld().getHeight()-20);
 
-               if ((image.getHeight() <= 50)) 
-            {
-               getWorld().addObject(new Congratulation(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-               GameOver = true;
-               getWorld().removeObject(this);
+                getWorld().removeObject(d);
+                getWorld().addObject(new DemonExplosionMulti(), getX(), getY());     
+
+                if ((image.getHeight() <= 50)) 
+                {
+                    getWorld().addObject(new Congratulation(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+                    GameOver = true;
+                    getWorld().removeObject(this);
+                }
+                else
+                {
+                    //Explosion because of hit       
+                    getWorld().addObject(new DemonExplosionMulti(), getX(), getY());
+
+                    //Change location to random after hit
+                    setLocation(50+Greenfoot.getRandomNumber(700), 200+Greenfoot.getRandomNumber(300));
+                }
+
             }
-            else
-            {
-                //Explosion because of hit       
-                getWorld().addObject(new DemonExplosionMulti(), getX(), getY());
-                
-                //Change location to random after hit
-                setLocation(50+Greenfoot.getRandomNumber(700), 200+Greenfoot.getRandomNumber(300));
-            }
-
-       
-            }
-
-       } 
- 
+        } 
     }
-        
     
-    public boolean touchingBullet() {    
-     return !getIntersectingObjects(Darts.class).isEmpty();    
-     } 
+    public boolean touchingBullet() 
+    {    
+        return !getIntersectingObjects(Darts.class).isEmpty();    
+    } 
 
     /**
      * Move one cell forward in the current direction.
      */
     public void move()
     {
-    
+
         if (!canMove()) {
             return;
         }
         switch(direction) {
             case EAST :
-                setLocation(getX() + 2, getY());
-                break;
+            setLocation(getX() + 2, getY());
+            break;
             case WEST :
-                setLocation(getX() - 2, getY());
-                break;
+            setLocation(getX() - 2, getY());
+            break;
         }
-    
+
     }
 
     /**
@@ -140,22 +131,22 @@ public class BlueDemon extends Actor
 
         switch(direction) {
             case WEST :
-                x=x-1;
-                break;
+            x=x-1;
+            break;
             case EAST :
-                x=x+1;
-                break;
+            x=x+1;
+            break;
         }
         // test for outside border
-       if (x <= 20)
-       {
-           return false;
-       }
-       
-       else if (x >= myWorld.getWidth()) 
-       { 
-          return false;
-       }
+        if (x <= 20)
+        {
+            return false;
+        }
+
+        else if (x >= myWorld.getWidth()) 
+        { 
+            return false;
+        }
         return true;
     }
 
@@ -163,29 +154,28 @@ public class BlueDemon extends Actor
      * Turns towards the left.
      */
 
-          public void turnWest()
+    public void turnWest()
     {
         int imageWidth = getImage().getWidth();
         int imageHeight = getImage().getHeight();
-        
+
         //private int yscale;
-        
+
         switch(direction) {
             case WEST :
-                setDirection(EAST);
-                setImage("RedDemonEast.png");
-                break;
+            setDirection(EAST);
+            setImage("RedDemonEast.png");
+            break;
             case EAST :
-                setDirection(WEST);
-                setImage("RedDemon.png");
-                break;
+            setDirection(WEST);
+            setImage("RedDemon.png");
+            break;
         }
         // set demon size to current size
         GreenfootImage demonImage = getImage();
         demonImage.scale(imageWidth, imageHeight);
         setImage(demonImage);
     }
-    
 
     /**
      * Sets the direction we're facing. The 'direction' parameter must
@@ -198,14 +188,14 @@ public class BlueDemon extends Actor
         }
         switch(direction) {
             case WEST :
-                setRotation(0);
-                break;
+            setRotation(0);
+            break;
             case EAST :
-                setRotation(0);
-                break;
+            setRotation(0);
+            break;
             default :
-                break;
+            break;
         }
     }
-    
+
 }

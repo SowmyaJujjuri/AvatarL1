@@ -12,6 +12,7 @@ public class base extends World
     HealthBar healthBar;
     String[] map;
     private GreenfootSound L1music = new GreenfootSound("BoisterousBoulevard.mp3");  
+    // Called for the first screen. No arguments. Also prepares surprise box and powerup.
     public base()
     {    
 
@@ -39,14 +40,13 @@ public class base extends World
                 if (kind == 12)actor = healthBar;
                 if (kind == 13)actor = new Key();
                 if (kind == 14)actor = new Door();
-                // if (kind == 13) actor = new PowerUp();
-                //   if (kind == 13) actor = new SurpriseBox(PointsBar pb);
-                //   if (kind == 14) actor = new PointsBar();
+              
                 addObject(actor, 16+j*32, 16+i*32);
         } 
         prepare();
     }
 
+    // constructs for other room when nextlevel() is called.
     public base(Counter counter, HealthBar healthbar)
     {
         super(800, 500, 1);  
@@ -75,9 +75,7 @@ public class base extends World
                 if (kind == 12)actor = healthBar;
                 if (kind == 13)actor = new Key();
                 if (kind == 14)actor = new Door();
-                // if (kind == 13) actor = new PowerUp();
-                //   if (kind == 13) actor = new SurpriseBox(PointsBar pb);
-                //   if (kind == 14) actor = new PointsBar();
+
                 addObject(actor, 16+j*32, 16+i*32);
         }
 
@@ -86,12 +84,6 @@ public class base extends World
     public void setFields() {}
 
     public void nextLevel() {}
-
-    public HealthBar getHealthBar()
-    {
-        //return healthbar;
-        return null;
-    }
 
     private void prepare()
     {
@@ -103,13 +95,14 @@ public class base extends World
         addObject(powerUp, 300, 323);
 
     }
-    
+
     public void act()
     {       
-       L1music.playLoop();
+        L1music.playLoop();
     }
+
     public void L1Stopmusic()
     {
-         L1music.stop();  
+        L1music.stop();  
     }
-    }
+}

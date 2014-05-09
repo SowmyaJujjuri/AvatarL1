@@ -17,11 +17,7 @@ public class Explosion extends Actor
         GreenfootImage img = new GreenfootImage("explosion.png");
         img.scale(sx,sy);
         setImage(img);
-    }
-    
-    
-    
-    
+    } 
     /**
      * Explode!
      */

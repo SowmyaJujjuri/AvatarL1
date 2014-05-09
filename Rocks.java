@@ -42,9 +42,7 @@ public class Rocks extends Actor
     {
         Lvl2BkgDesert myWorld = (Lvl2BkgDesert)getWorld();
         count++;
-        //Detects when the dart hits the rock. When it does, the action follows.
-        //List mylist = getObjectsInRange(10,Darts.class);
-        //Actor Darts = getOneObjectAtOffset(0, 0, Darts.class);     
+        //Detects when the dart hits the rock. When it does, the action follows.    
         List<Actor> mylist = (List<Actor>) getObjectsInRange(30,Darts.class);
         //Actor Darts=getOneIntersectingObject(Darts.class);
         if ( ! mylist.isEmpty())

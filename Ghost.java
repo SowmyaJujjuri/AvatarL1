@@ -21,11 +21,9 @@ public class Ghost extends Actor
         move();
     }    
     
-    
+    //Move ghost from side to side *400 & 500 coordinates*
     public void move()
     {
-   //    if ((speed < 0 && getX() == 0) || (speed > 0 && getX() == getWorld().getWidth()-1)) speed = -speed;
- 
       if ((getX()>=500 && speed>0 || getX()<= 400 && speed <0)) speed = -speed;
       move(speed);
     }

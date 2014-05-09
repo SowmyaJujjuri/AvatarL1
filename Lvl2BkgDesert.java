@@ -18,7 +18,7 @@ public class Lvl2BkgDesert extends World
      */
     public Lvl2BkgDesert(int L1counter)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 800x600 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
       
         music.playLoop();  
@@ -32,39 +32,33 @@ public class Lvl2BkgDesert extends World
             AvailDarts = 0;
         }
         
-        // Put Blue Demon in our world
+        // Put Blue Demon in our world - random coordinates
         addObject(bluedemon,50+Greenfoot.getRandomNumber(700), 30+getHeight()/4);
         
-        //adds Launcher into World
+        //adds Launcher into World - coordinates
         Launcher myLauncher = new Launcher(AvailDarts);
         addObject(myLauncher,getWidth()/2,getHeight()+5);
         
         
         Rocks myRocks = new Rocks(1, 100 + Greenfoot.getRandomNumber(50));
         addObject(myRocks, 50 + Greenfoot.getRandomNumber(200), 175 + Greenfoot.getRandomNumber(100));
-        //addObject(myRocks, Greenfoot.getRandomNumber(getWidth()-200)+100, Greenfoot.getRandomNumber(getHeight()-200)+100);       
+        
         Rocks myRocks2 = new Rocks(3, 100 + Greenfoot.getRandomNumber(50));
         addObject(myRocks2, 50 + Greenfoot.getRandomNumber(200), 325 + Greenfoot.getRandomNumber(100));
-         //addObject(myRocks2, Greenfoot.getRandomNumber(getWidth()-200)+100, Greenfoot.getRandomNumber(getHeight()-200)+100);         
-        Rocks myRocks3 = new Rocks(4, 100 + Greenfoot.getRandomNumber(50));
+         
+         Rocks myRocks3 = new Rocks(4, 100 + Greenfoot.getRandomNumber(50));
         addObject(myRocks3, 300 + Greenfoot.getRandomNumber(200), 175 + Greenfoot.getRandomNumber(100));
-         //addObject(myRocks3, Greenfoot.getRandomNumber(getWidth()-200)+100, Greenfoot.getRandomNumber(getHeight()-200)+100);
         
         Rocks myRocks4 = new Rocks(5, 100 + Greenfoot.getRandomNumber(50));
         addObject(myRocks4, 300 + Greenfoot.getRandomNumber(200), 325 + Greenfoot.getRandomNumber(100));
-        //addObject(myRocks4, Greenfoot.getRandomNumber(getWidth()-200)+100, Greenfoot.getRandomNumber(getHeight()-200)+100);
+
         
         Rocks myRocks5 = new Rocks(4, 100 + Greenfoot.getRandomNumber(50));
         addObject(myRocks5, 550 + Greenfoot.getRandomNumber(200), 175 + Greenfoot.getRandomNumber(100));
-         //addObject(myRocks3, Greenfoot.getRandomNumber(getWidth()-200)+100, Greenfoot.getRandomNumber(getHeight()-200)+100);
         
         Rocks myRocks6 = new Rocks(5, 100 + Greenfoot.getRandomNumber(50));
         addObject(myRocks6, 550 + Greenfoot.getRandomNumber(200), 325 + Greenfoot.getRandomNumber(100));
-        //addObject(myRocks4, Greenfoot.getRandomNumber(getWidth()-200)+100, Greenfoot.getRandomNumber(getHeight()-200)+100);
-        
-       // DemonExplosion demonexplosion = new DemonExplosion();
-        
-        
+
         AvailableDarts myAD = new AvailableDarts();
         addObject(myAD, 700, 30);
         
@@ -74,20 +68,24 @@ public class Lvl2BkgDesert extends World
         Congratulation congrats = new Congratulation();
 
     }
+    //adds 5 darts when you get rid of Cacti
     public void IncrementDarts(int num)
     {
        AvailDarts = AvailDarts + num; 
     }
+  
     public void DecrememntDarts(int num)
     {
        AvailDarts = AvailDarts - num;
        
     }
+ 
     public int GetAvailDarts()
     {
         return AvailDarts;
     }
-        public void started()  
+   
+    public void started()  
     {  
         music.playLoop();  
     }  
